@@ -1,15 +1,6 @@
-*How to use this template:*
+# Foldable carton box with Three.js & GSAP
 
-- The general styles for the demo page are in css/base.css
-- The README.md can be used to add credits of resources used
-- For writing the tutorial, take a look at https://github.com/crnacura/CodropsTemplate/wiki/Writing-the-article
-- Delete this 'how to' in the final version and leave the following (fill in title/description, credits and social links, we'll do the rest):
-
--------
-
-# The Title
-
-*A description of the demo goes here.*
+Final demo for Codrops tutorial
 
 ![Image Title](https://generative-placeholders.glitch.me/image?width=800&height=600")
 
@@ -20,31 +11,24 @@
 
 ## Installation
 
-Install dependencies:
+No package manager / build system is needed.
+You can run the page as it is on local server (any web server, really).
 
-```
-npm install
-```
+The page is using the following libs:
+1) GSAP and their scrollTrigger plugin.
+Both are added as CDN, but you can turn it to JS module or NPM if needed:
+https://greensock.com/docs/v3/Installation?checked=core,scrollTrigger
 
-Compile the code for development and start a local server:
+2) Three.js + their addons OrbitControls and mergeBufferGeometries.
+Both are added as CDN with import map, it can also be changed:
+https://threejs.org/docs/#manual/en/introduction/Installation
 
-```
-npm start
-```
-
-Create the build:
-
-```
-npm run build
-```
-
-## Credits
-
-- Images from [Unsplash](https://unsplash.com/)
+3) lil-gui controls added teh same way as threejs addons
+https://github.com/georgealways/lil-gui
 
 ## Misc
 
-Follow *Author*: [Twitter](), [Dribbble](), [Google+](), [GitHub]() 
+Follow Ksenia: [Twitter](https://twitter.com/uuuuuulala), [Codepen](https://codepen.io/ksenia-k), [website](https://ksenia-k.com/)
 
 Follow Codrops: [Twitter](http://www.twitter.com/codrops), [Facebook](http://www.facebook.com/codrops), [GitHub](https://github.com/codrops), [Instagram](https://www.instagram.com/codropsss/)
 
