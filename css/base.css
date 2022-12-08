@@ -105,6 +105,7 @@ a:focus-visible {
 }
 
 .frame {
+	position: fixed;
 	color: var(--color-title);
 	padding: 1.5rem;
 	display: grid;
@@ -169,19 +170,52 @@ a:focus-visible {
 	grid-area: prev;
 }
 
-.content {
-	display: flex;
-	flex-direction: column;
-	width: 100vw;
-	height: calc(100vh - 13rem);
-	position: relative;
-	justify-content: flex-start;
-	align-items: center;
-}
+/*.content {*/
+/*	display: flex;*/
+/*	flex-direction: column;*/
+/*	width: 100vw;*/
+/*	height: calc(100vh - 13rem);*/
+/*	position: relative;*/
+/*	justify-content: flex-start;*/
+/*	align-items: center;*/
+/*}*/
 
-@media screen and (min-width: 53em) {
-	.content {
-		height: 100vh;
-		justify-content: center;
-	}
+/*@media screen and (min-width: 53em) {*/
+/*	.content {*/
+/*		height: 100vh;*/
+/*		justify-content: center;*/
+/*	}*/
+/*}*/
+
+.page {
+	width: 100%;
+	height: 300vh;
+}
+.container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+}
+.container .ui-controls {
+	position: absolute;
+	top: 70%;
+	left: 70%;
+	user-select: none;
+	font-family: sans-serif;
+	text-align: end;
+}
+.container button {
+	font-size: 15px;
+	width: 25px;
+	height: 25px;
+	margin-bottom: 1em;
+	margin-right: .2em;
+	cursor: pointer;
+}
+.container button.disabled {
+	pointer-events: none;
+	cursor: auto;
+	opacity: .3;
 }
