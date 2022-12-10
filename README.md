@@ -3,7 +3,7 @@
 Final demo for Codrops tutorial
 
 
-![Box preview](./preview/box-preview-2.gif)
+![Box preview](./preview/box-preview.gif)
 
 [Article on Codrops](https://tympanus.net/codrops/?p=)
 
