@@ -16,10 +16,10 @@
 	<body class="demo-1">
 		<main>
 			<div class="frame">
-				<div class="frame__title"> 
+				<div class="frame__title">
 					<h1 class="frame__title-main">Foldable Carton Box with Three.js & GSAP</h1>
-					<a aria-label="Back to the article" class="frame__title-back" href="https://tympanus.net/codrops/?p="> 
-						<span class="oh__inner">Back to the article</span> 
+					<a aria-label="Back to the article" class="frame__title-back" href="https://tympanus.net/codrops/?p=">
+						<span class="oh__inner">Back to the article</span>
 						<svg width="18px" height="18px" viewBox="0 0 24 24"><path vector-effect="non-scaling-stroke" d="M18.25 15.5a.75.75 0 00.75-.75v-9a.75.75 0 00-.75-.75h-9a.75.75 0 000 1.5h7.19L6.22 16.72a.75.75 0 101.06 1.06L17.5 7.56v7.19c0 .414.336.75.75.75z"></path>
 						</svg>
 					</a>
@@ -71,7 +71,7 @@
 					depth: 45,
 					depthLimits: [15, 70],
 					thickness: .6,
-					thicknessLimits: [.1, 1.5],
+					thicknessLimits: [.1, 1],
 					fluteFreq: 5,
 					fluteFreqLimits: [3, 7],
 					flapGap: 1,
@@ -163,14 +163,17 @@
 
 				updateSceneSize();
 
-				const ambientLight = new THREE.AmbientLight(0xffffff, .4);
+				scene.add(box.els.group);
+				setGeometryHierarchy();
+
+				const ambientLight = new THREE.AmbientLight(0xffffff, .5);
 				scene.add(ambientLight);
 				lightHolder = new THREE.Group();
-				const topLight = new THREE.PointLight(0xffffff, .7);
+				const topLight = new THREE.PointLight(0xffffff, .5);
 				topLight.position.set(-30, 300, 0);
 				lightHolder.add(topLight);
 				const sideLight = new THREE.PointLight(0xffffff, .7);
-				sideLight.position.set(20, 0, 150);
+				sideLight.position.set(50, 0, 150);
 				lightHolder.add(sideLight);
 				scene.add(lightHolder);
 
@@ -283,7 +286,7 @@
 					}
 				}
 
-				updatePanelsRotation();
+				updatePanelsTransform();
 			}
 
 			function createSideGeometry(baseGeometry, size, folds, hasMiddleLayer) {
@@ -423,7 +426,7 @@
 						scrub: true,
 					},
 					onUpdate: () => {
-						updatePanelsRotation();
+						updatePanelsTransform();
 						checkCopyrightIntersect();
 					}
 				})
@@ -456,24 +459,30 @@
 							duration: .7,
 							top: .5 * Math.PI,
 							ease: 'back.in(3)'
-						}, 2.7)
+						}, 1.7)
 						.to(box.animated.flapAngles.frontHalf.length, {
 							duration: .9,
 							top: .49 * Math.PI,
 							ease: 'back.in(4)'
-						}, 2.8)
+						}, 1.8)
 			}
 
-			function updatePanelsRotation() {
-				box.els.frontHalf.width.side.rotation.y = box.animated.openingAngle;
-				box.els.backHalf.width.side.rotation.y = box.animated.openingAngle;
+			function updatePanelsTransform() {
+				// place width-sides aside of length-sides (not animated)
 				box.els.frontHalf.width.side.position.x = .5 * box.params.length;
 				box.els.backHalf.width.side.position.x = -.5 * box.params.length;
 
-				const sin = Math.sin(box.animated.openingAngle);
-				const cos = Math.cos(box.animated.openingAngle);
+				// rotate width-sides from 0 to 90 deg
+				box.els.frontHalf.width.side.rotation.y = box.animated.openingAngle;
+				box.els.backHalf.width.side.rotation.y = box.animated.openingAngle;
+
+				// move length-sides to keep the box centered
+				const cos = Math.cos(box.animated.openingAngle); // animates from 1 to 0
 				box.els.frontHalf.length.side.position.x = -.5 * cos * box.params.width;
 				box.els.backHalf.length.side.position.x = .5 * cos * box.params.width;
+
+				// move length-sides to define box inner space
+				const sin = Math.sin(box.animated.openingAngle); // animates from 0 to 1
 				box.els.frontHalf.length.side.position.z = .5 * sin * box.params.width;
 				box.els.backHalf.length.side.position.z = -.5 * sin * box.params.width;
 
@@ -548,15 +557,15 @@
 				const gui = new GUI();
 				gui.add(box.params, 'width', box.params.widthLimits[0], box.params.widthLimits[1]).step(1).onChange(() => {
 					createBoxElements();
-					updatePanelsRotation();
+					updatePanelsTransform();
 				});
 				gui.add(box.params, 'length', box.params.lengthLimits[0], box.params.lengthLimits[1]).step(1).onChange(() => {
 					createBoxElements();
-					updatePanelsRotation();
+					updatePanelsTransform();
 				});
 				gui.add(box.params, 'depth', box.params.depthLimits[0], box.params.depthLimits[1]).step(1).onChange(() => {
 					createBoxElements();
-					updatePanelsRotation();
+					updatePanelsTransform();
 				});
 				gui.add(box.params, 'fluteFreq', box.params.fluteFreqLimits[0], box.params.fluteFreqLimits[1]).step(1).onChange(() => {
 					createBoxElements();
