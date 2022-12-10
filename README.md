@@ -2,7 +2,8 @@
 
 Final demo for Codrops tutorial
 
-![Image Title](https://generative-placeholders.glitch.me/image?width=800&height=600")
+
+![Box preview](https://tympanus.net/codrops/wp-content/uploads/2022/12/box-preview.gif)
 
 [Article on Codrops](https://tympanus.net/codrops/?p=)
 
@@ -23,7 +24,7 @@ https://greensock.com/docs/v3/Installation?checked=core,scrollTrigger
 Both are added as CDN with import map, it can also be changed:
 https://threejs.org/docs/#manual/en/introduction/Installation
 
-3) lil-gui controls added teh same way as threejs addons
+3) lil-gui controls added in the same way as threejs addons
 https://github.com/georgealways/lil-gui
 
 ## Misc
