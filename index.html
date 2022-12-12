@@ -2,7 +2,7 @@
 <html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<title>Three.js Carton Box | Demo 1 | Codrops</title>
 		<!-- Generate Meta Tags via https://www.opengraph.xyz -->
 		<meta name="description" content="" />
@@ -192,6 +192,7 @@
 
 				orbit = new OrbitControls(camera, boxCanvas);
 				orbit.enableZoom = false;
+				orbit.enablePan = false;
 				orbit.enableDamping = true;
 				orbit.autoRotate = true;
 				orbit.autoRotateSpeed = .25;
