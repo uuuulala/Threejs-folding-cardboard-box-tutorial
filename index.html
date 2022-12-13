@@ -181,9 +181,8 @@
 				scene.add(box.els.group);
 				setGeometryHierarchy();
 
-				const material = new THREE.MeshLambertMaterial({
+				const material = new THREE.MeshStandardMaterial({
 					color: new THREE.Color(0x9C8D7B),
-					reflectivity: 0,
 					side: THREE.DoubleSide
 				});
 				box.els.group.traverse(c => {
