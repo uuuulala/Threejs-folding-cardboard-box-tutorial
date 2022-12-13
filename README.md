@@ -1,13 +1,12 @@
-# Foldable carton box with Three.js & GSAP
+# On-Scroll Folding Cardboard Box
 
-Final demo for Codrops tutorial
-
+Demo for the tutorial on how to create a 3D cardboard box that folds and unfolds on scroll using Three.js and the GSAP ScrollTrigger.
 
 ![Box preview](./preview/box-preview.gif)
 
-[Article on Codrops](https://tympanus.net/codrops/?p=)
+[Article on Codrops](https://tympanus.net/codrops/?p=66174)
 
-[Demo](http://tympanus.net/Development/.../)
+[Demo](http://tympanus.net/Tutorials/OnScrollFoldingCardboardBox/)
 
 
 ## Installation

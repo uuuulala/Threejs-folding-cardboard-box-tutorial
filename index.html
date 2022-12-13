@@ -3,28 +3,26 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<title>Three.js Carton Box | Demo 1 | Codrops</title>
-		<!-- Generate Meta Tags via https://www.opengraph.xyz -->
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<meta name="author" content="Codrops" />
+		<title>On-Scroll Folding Cardboard Box with Three.js & GSAP | Codrops</title>
+		<meta name="description" content="Demo for the tutorial on how to create a 3D cardboard box that folds and unfolds on scroll using Three.js and the GSAP ScrollTrigger." />
+		<meta name="keywords" content="cardboard box, on-scroll animation, three.js, unfolding, gsap scrolltrigger" />
+		<meta name="author" content="Ksenia Kondrashova for Codrops" />
 		<link rel="shortcut icon" href="favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/base.css" />
 		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
-		<!--script src="//tympanus.net/codrops/adpacks/analytics.js"></script-->
 	</head>
-	<body class="demo-1">
+	<body>
 		<main>
 			<div class="frame">
 				<div class="frame__title">
-					<h1 class="frame__title-main">Foldable Carton Box with Three.js & GSAP</h1>
-					<a aria-label="Back to the article" class="frame__title-back" href="https://tympanus.net/codrops/?p=">
+					<h1 class="frame__title-main">On-Scroll Folding Cardboard Box with Three.js & GSAP</h1>
+					<a aria-label="Back to the article" class="frame__title-back" href="https://tympanus.net/codrops/?p=66174">
 						<span class="oh__inner">Back to the article</span>
 						<svg width="18px" height="18px" viewBox="0 0 24 24"><path vector-effect="non-scaling-stroke" d="M18.25 15.5a.75.75 0 00.75-.75v-9a.75.75 0 00-.75-.75h-9a.75.75 0 000 1.5h7.19L6.22 16.72a.75.75 0 101.06 1.06L17.5 7.56v7.19c0 .414.336.75.75.75z"></path>
 						</svg>
 					</a>
 				</div>
-				<a class="frame__prev" href="">Previous demo</a>
+				<a class="frame__prev" href="http://tympanus.net/Development/TooltipTransition/">Previous demo</a>
 			</div>
 			<div class="content">
 				<div class="page">
@@ -33,14 +31,12 @@
 						<div class="ui-controls">
 							<button id="zoom-in">+</button>
 							<button id="zoom-out">-</button>
-							<div>Scroll ⬇ To Animate</div>
+							<div>Scroll to animate</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</main>
-		<!--script src="https://tympanus.net/codrops/adpacks/cda.js"></script-->
-
 		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
 		<script type="importmap">
 		  {
