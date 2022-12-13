@@ -3,13 +3,16 @@
 *::before {
 	box-sizing: border-box;
 }
+
 :root {
-	font-size: 16px;
+	font-size: 12px;
 	--color-text: #111;
-	--color-bg: #fff;
-	--color-link: #aaa;
+	--color-bg: #e7e5dd;
+	--color-link: #82725c;
 	--color-link-hover: #000;
+	--padding-page: 1.5rem;
 	touch-action: pan-x pan-y;
+	text-transform: uppercase;
 }
 
 body {
@@ -107,7 +110,7 @@ a:focus-visible {
 .frame {
 	position: fixed;
 	color: var(--color-title);
-	padding: 1.5rem;
+	padding: var(--padding-page);
 	display: grid;
 	grid-template-columns: auto auto auto;
 	grid-template-rows: auto;
@@ -115,6 +118,7 @@ a:focus-visible {
 	justify-content: start;
 	margin-bottom: 3rem;
 	grid-gap: 2rem;
+	z-index: 1000;
 }
 
 .frame a:not(.frame__title-back) {
@@ -143,19 +147,20 @@ a:focus-visible {
 .frame__title {
 	grid-area: title;
 	display: flex;
+	align-items: start;
 }
 
 .frame__title-main {
 	font-size: 1rem;
 	margin: 0;
 	font-weight: normal;
+	max-width: 32ch;
 }
 
 .frame__title-back {
 	position: relative;
 	display: flex;
 	align-items: flex-end;
-	margin-bottom: 0.15rem;
 }
 
 .frame__title-back span {
@@ -168,29 +173,14 @@ a:focus-visible {
 
 .frame__prev {
 	grid-area: prev;
+	align-self: start;
 }
-
-/*.content {*/
-/*	display: flex;*/
-/*	flex-direction: column;*/
-/*	width: 100vw;*/
-/*	height: calc(100vh - 13rem);*/
-/*	position: relative;*/
-/*	justify-content: flex-start;*/
-/*	align-items: center;*/
-/*}*/
-
-/*@media screen and (min-width: 53em) {*/
-/*	.content {*/
-/*		height: 100vh;*/
-/*		justify-content: center;*/
-/*	}*/
-/*}*/
 
 .page {
 	width: 100%;
 	height: 300vh;
 }
+
 .container {
 	position: fixed;
 	top: 0;
@@ -198,32 +188,51 @@ a:focus-visible {
 	width: 100%;
 	height: 100vh;
 }
+
 .container canvas {
 	touch-action: auto !important; /* overwriting threejs */
 }
-.container .ui-controls {
+
+.ui-controls {
 	position: absolute;
-	top: 70%;
-	left: 80%;
-	transform: translateX(-100%);
+	bottom: 0;
+	right: 0;
 	user-select: none;
-	font-family: sans-serif;
 	text-align: end;
 	min-width: 200px;
+	padding: var(--padding-page);
 }
-.container button {
+
+.ui-controls__button {
+	cursor: pointer;
 	display: inline-block;
 	text-align: center;
-	font-size: 20px;
-	min-width: 25px;
-	min-height: 25px;
-	margin-bottom: 1em;
-	margin-right: .2em;
-	padding: 0;
+	font-size: 1.15rem;
+	border: 1px solid #000;
+	padding: 0.65rem 1rem;
+	line-height: 1;
 	cursor: pointer;
+	margin: 0 0 1rem 0.5rem;
 }
-.container button.disabled {
+
+.ui-controls__button.disabled {
 	pointer-events: none;
 	cursor: auto;
 	opacity: .3;
+}
+
+.lil-gui {
+	--background-color: #f6f6f6;
+	--text-color: #3d3d3d;
+	--title-background-color: #efefef;
+	--title-text-color: #3d3d3d;
+	--widget-color: #eaeaea;
+	--hover-color: #f0f0f0;
+	--focus-color: #fafafa;
+	--number-color: #07aacf;
+	--string-color: #8da300;
+}
+
+@media screen and (min-width: 53em) {
+	
 }
